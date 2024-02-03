@@ -71,7 +71,7 @@ suite('Functional Tests', function () {
 });
 
 const Browser = require('zombie');
-Browser.site = `https://arleon-zemtsop.ddns.me${process.env.CONTEXT_PATH || ''}`
+Browser.site = `https://arleon-zemtsop.ddns.me`
 console.log('---------------------------------------------------------------------')
 console.log(Browser.site);
 console.log('---------------------------------------------------------------------')
@@ -81,7 +81,7 @@ suite('Functional Tests with Zombie.js', function () {
   const browser = new Browser();
 
   suiteSetup(function(done) {
-    return browser.visit('/', done);
+    return browser.visit(`${process.env.CONTEXT_PATH || '/'}`, done);
   });
 
   suite('Headless browser', function () {
