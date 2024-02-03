@@ -73,7 +73,7 @@ suite('Functional Tests', function () {
 const Browser = require('zombie');
 Browser.site = `https://arleon-zemtsop.ddns.me${process.env.CONTEXT_PATH || ''}`
 console.log('---------------------------------------------------------------------')
-console.log(process.env.CONTEXT_PATH);
+console.log(Browser.site);
 console.log('---------------------------------------------------------------------')
 
 suite('Functional Tests with Zombie.js', function () {
