@@ -5,6 +5,10 @@ services:
     build:
       context: ../..
       dockerfile: ./Dockerfile
+      args:
+        - CONTEXT_PATH=/boilerplate-mochachai
     ports:
       - 3000:3000
+    environment:
+      - CONTEXT_PATH=/boilerplate-mochachai
     restart: unless-stopped

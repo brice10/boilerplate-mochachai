@@ -4,5 +4,8 @@ COPY . /app
 WORKDIR /app
 RUN npm install
 
+ARG CONTEXT_PATH
+ENV CONTEXT_PATH $CONTEXT_PATH
+
 EXPOSE 3000
 CMD ["npm", "start"]
