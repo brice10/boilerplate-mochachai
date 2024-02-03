@@ -8,7 +8,7 @@ const runner = require('./test-runner');
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 
-app.get('/', function (req, res) {
+app.get(`${process.env.CONTEXT_PATH ? process.env.CONTEXT_PATH: ''}/`, function (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 })
 
