@@ -71,8 +71,7 @@ suite('Functional Tests', function () {
 });
 
 const Browser = require('zombie');
-// Browser.site = 'https://arleon-zemtsop.ddns.me/boilerplate-mochachai'
-Browser.site = 'http://37.27.13.174:3000'
+Browser.site = 'https://arleon-zemtsop.ddns.me'
 
 suite('Functional Tests with Zombie.js', function () {
   this.timeout(5000);
