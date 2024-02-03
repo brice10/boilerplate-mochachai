@@ -14,7 +14,7 @@ suite('Functional Tests', function () {
       chai
         .request(server)
         .keepOpen()
-        .get(`${process.env.CONTEXT_PATH || ''}/hello`)
+        .get('/hello')
         .end(function (err, res) {
           assert.equal(res.status, 200);
           assert.equal(res.text, 'hello Guest');
@@ -26,7 +26,7 @@ suite('Functional Tests', function () {
       chai
         .request(server)
         .keepOpen()
-        .get(`${process.env.CONTEXT_PATH || ''}/hello?name=xy_z`)
+        .get('/hello?name=xy_z')
         .end(function (err, res) {
           assert.equal(res.status, 200);
           assert.equal(res.text, 'hello xy_z');
@@ -38,7 +38,7 @@ suite('Functional Tests', function () {
       chai
         .request(server)
         .keepOpen()
-        .put(`${process.env.CONTEXT_PATH || ''}/travellers`)
+        .put('/travellers')
         .send({
           "surname": "Colombo"
         })
@@ -55,7 +55,7 @@ suite('Functional Tests', function () {
       chai
         .request(server)
         .keepOpen()
-        .put(`${process.env.CONTEXT_PATH || ''}/travellers`)
+        .put('/travellers')
         .send({
           "surname": "da Verrazzano"
         })
@@ -71,14 +71,14 @@ suite('Functional Tests', function () {
 });
 
 const Browser = require('zombie');
-Browser.site = `https://arleon-zemtsop.ddns.me`;
+Browser.site = 'https://arleon-zemtsop.ddns.me/'
 
 suite('Functional Tests with Zombie.js', function () {
   this.timeout(5000);
   const browser = new Browser();
 
   suiteSetup(function(done) {
-    return browser.visit(`${process.env.CONTEXT_PATH || '/'}`, done);
+    return browser.visit('/', done);
   });
 
   suite('Headless browser', function () {
