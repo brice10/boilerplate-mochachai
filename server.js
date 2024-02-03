@@ -8,13 +8,13 @@ const runner = require('./test-runner');
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 
-app.get(`${process.env.CONTEXT_PATH ? process.env.CONTEXT_PATH: ''}/`, function (req, res) {
+app.get(`${process.env.CONTEXT_PATH || ''}/`, function (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 })
 
-app.use(express.static(__dirname + `${process.env.CONTEXT_PATH ? process.env.CONTEXT_PATH: ''}/public`));
+app.use(express.static(__dirname + `${process.env.CONTEXT_PATH || ''}/public`));
 
-app.get(`${process.env.CONTEXT_PATH ? process.env.CONTEXT_PATH: ''}/hello`, function (req, res) {
+app.get(`${process.env.CONTEXT_PATH || ''}/hello`, function (req, res) {
   const name = req.query.name || 'Guest';
   res.type('txt').send('hello ' + name);
 })
@@ -62,11 +62,11 @@ const travellers = function (req, res) {
 };
 
 
-app.route(`${process.env.CONTEXT_PATH ? process.env.CONTEXT_PATH: ''}/travellers`)
+app.route(`${process.env.CONTEXT_PATH || ''}/travellers`)
   .put(travellers);
 
 let error;
-app.get(`${process.env.CONTEXT_PATH ? process.env.CONTEXT_PATH: ''}/_api/get-tests`, cors(), function (req, res, next) {
+app.get(`${process.env.CONTEXT_PATH || ''}/_api/get-tests`, cors(), function (req, res, next) {
   if (error)
     return res.json({ status: 'unavailable' });
   next();
