@@ -84,7 +84,7 @@ app.get(`${process.env.CONTEXT_PATH || ''}/_api/get-tests`, cors(), function (re
 
 const port = process.env.PORT || 3000;
 app.listen(port, function () {
-  console.log("Listening on port " + port + " Context Path " + process.env.CONTEXT_PATH);
+  console.log("Listening on port " + port);
   console.log('Running Tests...');
   setTimeout(function () {
     try {
