@@ -88,7 +88,7 @@ utils.ready(function() {
     if(input.value) {
       const options = {
         method: 'put',
-        url: '/travellers',
+        url: 'travellers',
         type: 'json',
         data: {surname: input.value}
       };
